@@ -4,25 +4,25 @@
 
 A clone board called the freeduino, some headers were missing when I took pictures:
 
-![http://opengauge.org/obduino/hardware/freeduino_front.jpg](http://opengauge.org/obduino/hardware/freeduino_front.jpg)
-![http://opengauge.org/obduino/hardware/freeduino_back.jpg](http://opengauge.org/obduino/hardware/freeduino_back.jpg)
+![](https://github.com/Magister54/opengauge/blob/wiki/pictures/freeduino_front.jpg)
+![](https://github.com/Magister54/opengauge/blob/wiki/pictures/freeduino_back.jpg)
 
 
 The LCD screen with its wires attached, note the transistor and the resistor, covered by (not yet heated) shrink tube, on the right side:
 
-![http://opengauge.org/obduino/hardware/lcd.jpg](http://opengauge.org/obduino/hardware/lcd.jpg)
-![http://opengauge.org/obduino/hardware/lcd_back.jpg](http://opengauge.org/obduino/hardware/lcd_back.jpg)
+![](https://github.com/Magister54/opengauge/blob/wiki/pictures/lcd.jpg)
+![](https://github.com/Magister54/opengauge/blob/wiki/pictures/lcd_back.jpg)
 
 
 Example of the Freeduino and LCD attached:
 
-![http://opengauge.org/obduino/hardware/duino_lcd.jpg](http://opengauge.org/obduino/hardware/duino_lcd.jpg)
+![](https://github.com/Magister54/opengauge/blob/wiki/pictures/duino_lcd.jpg)
 
 # ISO Diagram #
 
 Here's the proposed diagram of the [Arduino](http://arduino.cc) board, the LCD screen, and the [ISO interface](OBDuinoInterface.md).
 
-![http://opengauge.org/obduino/diagram/obduino.gif](http://opengauge.org/obduino/diagram/obduino.gif)
+![](https://github.com/Magister54/opengauge/blob/wiki/pictures/obduino_iso.gif)
 
 ## Hardware for ISO ##
 
@@ -38,4 +38,4 @@ You need:
 
 Freeduino, LCD, ISO interface:
 
-![http://opengauge.org/obduino/hardware/obduino.jpg](http://opengauge.org/obduino/hardware/obduino.jpg)
+![](https://github.com/Magister54/opengauge/blob/wiki/pictures/obduino.jpg)

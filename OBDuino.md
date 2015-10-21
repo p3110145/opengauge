@@ -1,4 +1,4 @@
-![http://opengauge.org/obduino/hardware/idle.jpg](http://opengauge.org/obduino/hardware/idle.jpg)
+![](https://github.com/Magister54/opengauge/blob/wiki/pictures/idle.jpg)
 
 
 
