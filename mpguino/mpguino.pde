@@ -175,7 +175,7 @@ public:
 //LCD prototype      
 namespace LCD{      
   void gotoXY(byte x, byte y);      
-  void print(char * string);      
+  void print(const char * string);      
   void init();      
   void tickleEnable();      
   void cmdWriteSet();      
@@ -273,7 +273,7 @@ pFunc displayFuncs[] ={
   doDisplaySystemInfo,
 };      
 #define displayFuncSize (sizeof(displayFuncs)/sizeof(pFunc)) //array size      
-prog_char  * displayFuncNames[displayFuncSize]; 
+const char  * displayFuncNames[displayFuncSize]; 
 byte newRun = 0;
 void setup (void){
   init2();
@@ -306,9 +306,9 @@ void setup (void){
   LCD::LcdCommandWrite(B00000001);  // clear display, set cursor position to zero         
   LCD::LcdCommandWrite(B10000);  // set dram to zero
   LCD::gotoXY(0,0); 
-  LCD::print(getStr(PSTR("OpenGauge       ")));      
+  LCD::print(PSTR("OpenGauge       "));      
   LCD::gotoXY(0,1);      
-  LCD::print(getStr(PSTR("  MPGuino  v0.75")));      
+  LCD::print(PSTR("  MPGuino  v0.75"));      
 
   pinMode(InjectorOpenPin, INPUT);       
   pinMode(InjectorClosedPin, INPUT);       
@@ -411,32 +411,32 @@ void loop (void){
     
 //see if any buttons were pressed, display a brief message if so      
       if(!(buttonState&lbuttonBit) && !(buttonState&rbuttonBit)){// left and right = initialize      
-          LCD::print(getStr(PSTR("Setup ")));    
+          LCD::print(PSTR("Setup "));    
           initGuino();  
       //}else if(!(buttonState&lbuttonBit) && !(buttonState&rbuttonBit)){// left and right = run lcd init = tank reset      
       //    LCD::print(getStr(PSTR("Init LCD "))); 
       //    LCD::init();
       }else if (!(buttonState&lbuttonBit) && !(buttonState&mbuttonBit)){// left and middle = tank reset      
           tank.reset();      
-          LCD::print(getStr(PSTR("Tank Reset ")));      
+          LCD::print(PSTR("Tank Reset "));      
       }else if(!(buttonState&mbuttonBit) && !(buttonState&rbuttonBit)){// right and middle = current reset      
           current.reset();      
-          LCD::print(getStr(PSTR("Current Reset ")));      
+          LCD::print(PSTR("Current Reset "));      
       }else if(!(buttonState&lbuttonBit)){ //left is rotate through screeens to the left      
         if(screen!=0)      
           screen=(screen-1);       
         else      
           screen=displayFuncSize-1;      
-        LCD::print(getStr(displayFuncNames[screen]));      
+        LCD::print(displayFuncNames[screen]);      
       }else if(!(buttonState&mbuttonBit)){ //middle is cycle through brightness settings      
         brightnessIdx = (brightnessIdx + 1) % brightnessLength;      
         analogWrite(BrightnessPin,brightness[brightnessIdx]);      
-        LCD::print(getStr(PSTR("Brightness ")));      
+        LCD::print(PSTR("Brightness "));      
         LCD::LcdDataWrite('0' + brightnessIdx);      
         LCD::print(" ");      
       }else if(!(buttonState&rbuttonBit)){//right is rotate through screeens to the left      
         screen=(screen+1)%displayFuncSize;      
-        LCD::print(getStr(displayFuncNames[screen]));      
+        LCD::print(displayFuncNames[screen]);      
       }      
       if(buttonState!=buttonsUp)
          holdDisplay=1;
@@ -579,7 +579,7 @@ void LCD::gotoXY(byte x, byte y){
   LCD::LcdCommandWrite(dr);        
 }      
  
-void LCD::print(char * string){      
+void LCD::print(const char * string){      
   byte x = 0;      
   char c = string[x];      
   while(c != 0){      
@@ -615,7 +615,7 @@ void LCD::init(){
 
 //creating the custom fonts:
   LcdCommandWrite(B01001000);  // set cgram
-  static byte chars[] PROGMEM ={
+  const static byte chars[] PROGMEM ={
     B11111,B00000,B11111,B11111,B00000,
     B11111,B00000,B11111,B11111,B00000,
     B11111,B00000,B11111,B11111,B00000,
@@ -1257,3 +1257,4 @@ void simpletx( char * string ){
    UDR0 = *string++; //send the data
  }
 }
+
